@@ -6,7 +6,7 @@ const AnniversaryTracker = () => {
   const [timeTogether, setTimeTogether] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
   
   // Set your anniversary date here
-  const anniversaryDate = new Date('2023-03-15') // Example: March 15, 2023
+  const anniversaryDate = new Date('2026-02-24')
 
   useEffect(() => {
     const calculateTime = () => {
@@ -25,12 +25,12 @@ const AnniversaryTracker = () => {
   }, [])
 
   const milestones = [
-    { id: 1, title: 'First Month', date: 'April 15, 2023', achieved: true, emoji: '🌟' },
-    { id: 2, title: '6 Months Together', date: 'September 15, 2023', achieved: true, emoji: '💕' },
-    { id: 3, title: '1 Year Anniversary', date: 'March 15, 2024', achieved: true, emoji: '🎉' },
-    { id: 4, title: '500 Days', date: 'July 28, 2024', achieved: true, emoji: '✨' },
-    { id: 5, title: '2 Years Together', date: 'March 15, 2025', achieved: false, emoji: '🎊' },
-    { id: 6, title: '1000 Days', date: 'December 10, 2025', achieved: false, emoji: '🌈' },
+    { id: 1, title: 'First Month', date: 'March 24, 2026', achieved: true, emoji: '🌟' },
+    { id: 2, title: '3 Months Together', date: 'May 24, 2026', achieved: true, emoji: '💕' },
+    { id: 3, title: '100 Days', date: 'June 4, 2026', achieved: true, emoji: '✨' },
+    { id: 4, title: '6 Months Together', date: 'August 24, 2026', achieved: false, emoji: '🎉' },
+    { id: 5, title: '1 Year Anniversary', date: 'February 24, 2027', achieved: false, emoji: '🎊' },
+    { id: 6, title: '500 Days', date: 'July 8, 2027', achieved: false, emoji: '🌈' },
   ]
 
   const funFacts = [

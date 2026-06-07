@@ -6,7 +6,7 @@ const Milestones = () => {
     {
       id: 1,
       title: 'First Message',
-      date: 'March 10, 2023',
+      date: 'February 24, 2026',
       description: 'The message that started it all - "Hey, I saw your profile and thought we\'d get along"',
       icon: '💬',
       color: 'from-rose-400 to-pink-400'
@@ -14,7 +14,7 @@ const Milestones = () => {
     {
       id: 2,
       title: 'First Call',
-      date: 'March 12, 2023',
+      date: 'February 26, 2026',
       description: 'Our first voice call that lasted 3 hours. Time flew when we talked',
       icon: '📞',
       color: 'from-pink-400 to-purple-400'
@@ -22,7 +22,7 @@ const Milestones = () => {
     {
       id: 3,
       title: 'First "I Love You"',
-      date: 'March 20, 2023',
+      date: 'March 10, 2026',
       description: 'The moment my heart knew - three words that changed everything',
       icon: '💕',
       color: 'from-purple-400 to-indigo-400'
@@ -30,7 +30,7 @@ const Milestones = () => {
     {
       id: 4,
       title: 'First Video Date',
-      date: 'April 5, 2023',
+      date: 'March 20, 2026',
       description: 'Dressed up, candles lit, dinner together through screens. Perfect.',
       icon: '🎥',
       color: 'from-indigo-400 to-blue-400'
@@ -38,16 +38,16 @@ const Milestones = () => {
     {
       id: 5,
       title: 'First In-Person Meeting',
-      date: 'December 25, 2023',
-      description: 'Christmas miracle - finally together. The best gift ever.',
+      date: 'Upcoming',
+      description: 'The day we finally close the distance and meet face to face.',
       icon: '🎄',
       color: 'from-blue-400 to-cyan-400'
     },
     {
       id: 6,
       title: 'First Trip Together',
-      date: 'February 14, 2024',
-      description: 'Valentine\'s getaway - our first adventure as a couple in person',
+      date: 'Future',
+      description: 'Our first adventure together in person',
       icon: '✈️',
       color: 'from-cyan-400 to-teal-400'
     },
@@ -62,7 +62,7 @@ const Milestones = () => {
     {
       id: 8,
       title: 'First Anniversary',
-      date: 'March 15, 2024',
+      date: 'February 24, 2027',
       description: '365 days of loving you, and counting. Here\'s to forever.',
       icon: '🎉',
       color: 'from-emerald-400 to-green-400'

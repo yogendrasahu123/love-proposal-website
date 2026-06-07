@@ -62,6 +62,42 @@ const LoveMessages = () => {
       icon: <Heart className="w-8 h-8" />,
       title: "Grateful for You",
       content: "Every day I wake up grateful that you're in my life. Grateful for your love, your patience, your understanding. Grateful for the distance that makes our love stronger. Grateful for you, simply and completely."
+    },
+    {
+      type: "message",
+      icon: <Heart className="w-8 h-8" />,
+      title: "Good Morning, My Love",
+      content: "The first thing I think of every morning is you. Before the day begins, before the world wakes up, my heart already knows where it belongs — with you. Good morning is just another way of saying I love you."
+    },
+    {
+      type: "message",
+      icon: <Heart className="w-8 h-8" />,
+      title: "You Are My Sunshine",
+      content: "On the darkest days, you are my sunshine breaking through the clouds. Your laugh is my favorite sound, your name is my favorite word, and your love is the greatest gift I've ever received."
+    },
+    {
+      type: "message",
+      icon: <Heart className="w-8 h-8" />,
+      title: "My Heart Only Knows You",
+      content: "I have loved in words and silence both, but the way I love you has no language. It lives in the space between heartbeats, in the quiet moments, in every thought that begins and ends with your name."
+    },
+    {
+      type: "message",
+      icon: <Heart className="w-8 h-8" />,
+      title: "Distance Is Just a Number",
+      content: "They say distance makes the heart grow fonder — with you, it makes it grow wildly, completely, endlessly. Every mile between us is just another reason I can't wait to close the gap and hold you close."
+    },
+    {
+      type: "message",
+      icon: <Heart className="w-8 h-8" />,
+      title: "The Luckiest Person Alive",
+      content: "Out of all the people in this world, you chose to love me. Out of all the timelines, we found each other in this one. I don't take that lightly — I carry it with me every single day as the greatest blessing of my life."
+    },
+    {
+      type: "message",
+      icon: <Heart className="w-8 h-8" />,
+      title: "You Made Me Believe Again",
+      content: "Before you, I had lost faith in magic. Then you walked in and rearranged everything I thought I knew about love. You didn't just find me — you found every broken piece and gently put me back together."
     }
   ]
 
@@ -113,6 +149,42 @@ const LoveMessages = () => {
     {
       text: "दिल से दिल का रिश्ता बहुत पुराना है, तुमसे मोहब्बत का ये एहसास बहुत नया है। हर पल तुम्हें चाहता हूँ, हर सांस तुम्हें पुकारती है।",
       translation: "The heart-to-heart connection is ancient, this feeling of love for you is new. Every moment I love you, every breath calls out to you."
+    },
+    {
+      text: "तू मिला तो लगा जैसे ज़िंदगी मिल गई, तेरी मुस्कान में जन्नत की झलक मिल गई। अब कोई ख्वाहिश नहीं बाकी इस दिल में, तुझे पाकर हर खुशी मिल गई।",
+      translation: "When I found you, I felt I found life itself, in your smile I found a glimpse of paradise. Now there is no wish left in this heart, by finding you I have found every happiness."
+    },
+    {
+      text: "तुम्हारी आँखों में एक दुनिया बसती है, तुम्हारी बाँहों में सुकून की बारिश बरसती है। जहाँ भी जाऊँ, जो भी करूँ, तुम्हारी याद हमेशा मेरे साथ रहती है।",
+      translation: "A whole world lives in your eyes, in your arms rains down peace and comfort. Wherever I go, whatever I do, your memory always stays with me."
+    },
+    {
+      text: "इश्क़ में डूबा हूँ मैं, तेरी हर अदा पर मर जाता हूँ। तू जो मुस्कुरा दे एक बार, तो सारा जहाँ भूल जाता हूँ।",
+      translation: "I am lost in love, I die for your every gesture. If you smile at me just once, I forget the whole world."
+    },
+    {
+      text: "तेरे बिन अधूरी सी है ये ज़िंदगानी, तेरी यादों में बसी है मेरी हर कहानी। तू मेरी रूह में समाया हुआ है, तुझसे है मेरी हर जवानी।",
+      translation: "Life feels incomplete without you, every story of mine dwells in your memories. You are absorbed in my soul, all my youth belongs to you."
+    },
+    {
+      text: "ख्वाबों में आते हो तुम रोज़, दिल की बातें कहते हो रोज़। मैं भी इंतज़ार करता हूँ हर रात, कि तुम्हारी आवाज़ सुन सकूँ रोज़।",
+      translation: "You come in my dreams every day, you speak the language of my heart every day. I also wait every night, so I can hear your voice every day."
+    },
+    {
+      text: "मोहब्बत का एहसास बयान नहीं होता, दिल का दर्द आसान नहीं होता। पर तुझसे प्यार करना सबसे आसान है, तू मेरे बिन मुमकिन नहीं होता।",
+      translation: "The feeling of love cannot be described, the pain of the heart is not easy. But loving you is the easiest thing, without you nothing is possible."
+    },
+    {
+      text: "रात के तारे तुम हो, दिन का उजाला तुम हो। मेरी हर साँस में तुम हो, मेरी हर दुआ में तुम हो। इस दिल की ज़मीन पर, सबसे ख़ूबसूरत पेड़ तुम हो।",
+      translation: "You are the stars of the night, you are the light of the day. You are in my every breath, you are in my every prayer. On the land of this heart, you are the most beautiful tree."
+    },
+    {
+      text: "तुम्हारे बिन चैन नहीं मुझे, तुम्हारे साथ हर ग़म से राहत है। तुम्हारी एक झलक दिल सुकून पाता है, तुम्हारे होने से ही मेरी ज़िंदगी में रौनक़ है।",
+      translation: "I have no peace without you, with you there is relief from every sorrow. One glimpse of you brings peace to the heart, your existence brings life to my world."
+    },
+    {
+      text: "प्यार में डूबना है तो तुझमें डूबूँ, तेरी मोहब्बत की गहराई में जाऊँ। दुनिया की परवाह नहीं मुझे, बस तेरे दिल में जगह पाऊँ।",
+      translation: "If I have to drown in love, let me drown in you, let me go into the depths of your love. I don't care about the world, I just want a place in your heart."
     }
   ]
 
