@@ -7,7 +7,7 @@ const OurStory = () => {
       year: "The Beginning",
       icon: <Wifi className="w-8 h-8" />,
       title: "We Met Online",
-      date: "That magical day",
+      date: "February 24, 2026",
       description: "Across the digital world, our paths crossed. A simple message turned into hours of conversation, and I knew my life was about to change forever. Distance didn't matter - the connection was instant and undeniable.",
       color: "from-blue-400 to-cyan-400"
     },

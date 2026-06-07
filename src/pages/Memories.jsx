@@ -1,8 +1,64 @@
-import { Heart, Video, MessageSquare, Coffee, Moon, Phone, Clock, Globe } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { Heart, Video, MessageSquare, Coffee, Moon, Phone, Clock, Globe, Plus, Sparkles, MessageCircle, Trash2 } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
+
+const colorClasses = {
+  rose: 'from-rose-100 to-pink-100 border-rose-200',
+  pink: 'from-pink-100 to-purple-100 border-pink-200',
+  purple: 'from-purple-100 to-indigo-100 border-purple-200'
+}
 
 const Memories = () => {
-  const memories = [
+  const [personalMemories, setPersonalMemories] = useState([])
+  const [newMemory, setNewMemory] = useState('')
+  const [newDate, setNewDate] = useState('')
+  const [showAddForm, setShowAddForm] = useState(false)
+  const [loading, setLoading] = useState(true)
+  const [saving, setSaving] = useState(false)
+
+  useEffect(() => {
+    fetchPersonalMemories()
+  }, [])
+
+  const fetchPersonalMemories = async () => {
+    try {
+      const res = await fetch('/api/memories')
+      const data = await res.json()
+      setPersonalMemories(data)
+    } catch (err) {
+      console.error('Failed to fetch memories', err)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const addMemory = async () => {
+    if (!newMemory.trim()) return
+    setSaving(true)
+    const colors = ['rose', 'pink', 'purple']
+    const color = colors[Math.floor(Math.random() * colors.length)]
+    const dateStr = newDate
+      ? new Date(newDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+      : new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+    try {
+      const res = await fetch('/api/memories', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: newMemory.trim(), date: dateStr, color }),
+      })
+      const saved = await res.json()
+      setPersonalMemories(prev => [saved, ...prev])
+      setNewMemory('')
+      setNewDate('')
+      setShowAddForm(false)
+    } catch (err) {
+      console.error('Failed to save memory', err)
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  const memoryCards = [
     {
       icon: <Video className="w-10 h-10" />,
       title: "First Video Call",
@@ -82,7 +138,7 @@ const Memories = () => {
 
         {/* Memories Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 parallax-3d">
-          {memories.map((memory, index) => (
+          {memoryCards.map((memory, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 60, rotateX: 25 }}
@@ -171,6 +227,136 @@ const Memories = () => {
               </motion.div>
             ))}
           </div>
+        </motion.div>
+
+        {/* Personal Memories Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40, rotateX: 15 }}
+          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="mt-20"
+        >
+          <div className="text-center mb-12">
+            <motion.div
+              animate={{ scale: [1, 1.15, 1], rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity }}
+              className="relative inline-block mb-5"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full blur-2xl opacity-50"></div>
+              <Sparkles className="w-14 h-14 text-pink-500 relative z-10" />
+            </motion.div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Our Personal Memories</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Every moment we share is a gem worth keeping. Write it down so we never forget.
+            </p>
+          </div>
+
+          {/* Add Memory Button */}
+          <div className="text-center mb-10">
+            <motion.button
+              whileHover={{ scale: 1.06, rotateY: 6 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowAddForm(!showAddForm)}
+              className="btn-gradient text-white px-8 py-4 rounded-2xl font-bold text-lg inline-flex items-center gap-3 modern-shadow"
+            >
+              <Plus className="w-6 h-6" />
+              {showAddForm ? 'Cancel' : 'Add a Memory'}
+            </motion.button>
+          </div>
+
+          {/* Add Memory Form */}
+          <AnimatePresence>
+            {showAddForm && (
+              <motion.div
+                initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                transition={{ duration: 0.4 }}
+                className="glass-3d rounded-3xl p-8 mb-12 max-w-2xl mx-auto holographic"
+              >
+                <textarea
+                  value={newMemory}
+                  onChange={(e) => setNewMemory(e.target.value)}
+                  placeholder="Write a special memory..."
+                  className="w-full p-4 rounded-2xl border-2 border-rose-200 focus:border-rose-400 focus:outline-none resize-none h-32 text-gray-700 mb-4"
+                  rows={4}
+                />
+                <input
+                  type="date"
+                  value={newDate}
+                  onChange={(e) => setNewDate(e.target.value)}
+                  className="w-full p-3 rounded-2xl border-2 border-rose-200 focus:border-rose-400 focus:outline-none text-gray-700 mb-4"
+                />
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={addMemory}
+                  disabled={saving || !newMemory.trim()}
+                  className="btn-gradient text-white px-8 py-3 rounded-2xl font-bold inline-flex items-center gap-2 disabled:opacity-50"
+                >
+                  <Heart className="w-5 h-5" />
+                  {saving ? 'Saving...' : 'Save Memory'}
+                </motion.button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Loading */}
+          {loading && (
+            <div className="text-center py-12">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
+                className="inline-block"
+              >
+                <Sparkles className="w-10 h-10 text-rose-400" />
+              </motion.div>
+              <p className="text-gray-500 mt-3">Loading memories...</p>
+            </div>
+          )}
+
+          {/* Personal Memory Cards */}
+          {!loading && personalMemories.length > 0 && (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {personalMemories.map((memory, index) => (
+                <motion.div
+                  key={memory.id}
+                  initial={{ opacity: 0, y: 50, rotateX: 20 }}
+                  whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.05 }}
+                  whileHover={{ scale: 1.05, rotateY: 7, boxShadow: "0 25px 50px -10px rgba(244, 63, 94, 0.25)" }}
+                  className={`glass-3d rounded-3xl p-6 transform-style-3d bg-gradient-to-br ${colorClasses[memory.color] || colorClasses.rose} border-2`}
+                >
+                  <div className="flex items-start gap-3 mb-3">
+                    <motion.div
+                      animate={{ rotate: [0, 10, -10, 0] }}
+                      transition={{ duration: 3, repeat: Infinity, delay: index * 0.1 }}
+                    >
+                      <Heart className="w-5 h-5 text-rose-500 flex-shrink-0 mt-1" fill="#f43f5e" />
+                    </motion.div>
+                    <p className="text-gray-800 leading-relaxed font-medium">{memory.text}</p>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-500 mt-4 pt-4 border-t border-white/30">
+                    <MessageCircle className="w-4 h-4" />
+                    <span>{memory.date}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
+
+          {!loading && personalMemories.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-16 glass-3d rounded-3xl"
+            >
+              <Heart className="w-12 h-12 text-rose-300 mx-auto mb-4" />
+              <p className="text-gray-500 text-lg">No memories yet — add your first one!</p>
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </div>
