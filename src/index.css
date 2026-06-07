@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-slate-50 via-rose-50 to-pink-50 min-h-screen;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent;
+  }
+  
+  .card-shadow {
+    @apply shadow-2xl shadow-rose-200/30;
+  }
+  
+  .btn-gradient {
+    @apply bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 hover:from-rose-600 hover:via-pink-600 hover:to-purple-600;
+  }
+
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-slate-900/70 backdrop-blur-xl border border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-lg border border-white/30 shadow-xl;
+  }
+
+  .modern-shadow {
+    @apply shadow-2xl shadow-black/5;
+  }
+
+  .gradient-border {
+    @apply relative;
+  }
+
+  .gradient-border::before {
+    @apply absolute inset-0 rounded-2xl p-[2px] bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 -z-10;
+    content: '';
+  }
+
+  /* Modern 3D Utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  /* 3D Card Effects */
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .card-3d:hover {
+    transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+  }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* 3D Depth Layers */
+  .depth-1 {
+    transform: translateZ(20px);
+  }
+
+  .depth-2 {
+    transform: translateZ(40px);
+  }
+
+  .depth-3 {
+    transform: translateZ(60px);
+  }
+
+  /* Glassmorphism 3D */
+  .glass-3d {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 
+      0 8px 32px 0 rgba(31, 38, 135, 0.15),
+      inset 0 0 32px 0 rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+  }
+
+  /* Holographic Effect */
+  .holographic {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .holographic::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 70%
+    );
+    transform: rotate(45deg);
+    animation: holographic-shine 3s infinite;
+  }
+
+  @keyframes holographic-shine {
+    0% {
+      transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+      transform: translateX(100%) rotate(45deg);
+    }
+  }
+
+  /* 3D Parallax */
+  .parallax-3d {
+    transform-style: preserve-3d;
+  }
+
+  .parallax-3d > * {
+    transform-style: preserve-3d;
+  }
+
+  /* Neon Glow 3D */
+  .neon-glow-3d {
+    box-shadow: 
+      0 0 5px rgba(244, 63, 94, 0.5),
+      0 0 20px rgba(244, 63, 94, 0.3),
+      0 0 40px rgba(244, 63, 94, 0.2),
+      0 0 80px rgba(244, 63, 94, 0.1);
+    transform-style: preserve-3d;
+  }
+}
